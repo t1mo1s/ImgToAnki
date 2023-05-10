@@ -1,8 +1,6 @@
 from aqt import mw
-from aqt.utils import showInfo, qconnect
 from aqt.qt import *
-
-
+from PyQt5.QtWidgets import QFileDialog
 
 
 def testFunction() -> None:
@@ -11,12 +9,20 @@ def testFunction() -> None:
 
     for i in range(1, 5):
         for j in range(1, 5):
-            grid.addWidget(QPushButton("B" + str(i) + str(j)), i, j)
+            grid.addWidget(QPushButton("B" + str(i) + str(j)), i, j, 2)
 
     dialog.setLayout(grid)
     dialog.setGeometry(100, 100, 200, 100)
     dialog.setWindowTitle("ImgToAnki")
-    dialog.exec_()
+
+    # Add a file dialog to choose a file
+    file_dialog = QFileDialog()
+    file_path, _ = file_dialog.getOpenFileName(dialog, "Choose a file", "", "All Files (*)")
+    if file_path:
+        # Do something with the chosen file path
+        print("Selected file:", file_path)
+
+    dialog.exec()
 
 
 action = QAction("ImgToAnki", mw)
