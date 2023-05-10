@@ -15,10 +15,10 @@ def testFunction() -> None:
 
     dialog.setLayout(grid)
     dialog.setGeometry(100, 100, 200, 100)
-    dialog.setWindowTitle("PyQt")
+    dialog.setWindowTitle("ImgToAnki")
     dialog.exec_()
 
 
-action = QAction("test", mw)
+action = QAction("ImgToAnki", mw)
 qconnect(action.triggered, testFunction)
 mw.form.menuTools.addAction(action)
