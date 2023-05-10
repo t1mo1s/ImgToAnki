@@ -9,7 +9,7 @@ def testFunction() -> None:
 
     for i in range(1, 5):
         for j in range(1, 5):
-            grid.addWidget(QPushButton("B" + str(i) + str(j)), i, j)
+            grid.addWidget(QPushButton("B" + str(i) + str(j)), i, j, 2)
 
     dialog.setLayout(grid)
     dialog.setGeometry(100, 100, 200, 100)
