@@ -1,0 +1,24 @@
+from aqt import mw
+from aqt.utils import showInfo, qconnect
+from aqt.qt import *
+
+
+
+
+def testFunction() -> None:
+    dialog = QDialog()
+    grid = QGridLayout()
+
+    for i in range(1, 5):
+        for j in range(1, 5):
+            grid.addWidget(QPushButton("B" + str(i) + str(j)), i, j)
+
+    dialog.setLayout(grid)
+    dialog.setGeometry(100, 100, 200, 100)
+    dialog.setWindowTitle("PyQt")
+    dialog.exec_()
+
+
+action = QAction("test", mw)
+qconnect(action.triggered, testFunction)
+mw.form.menuTools.addAction(action)
