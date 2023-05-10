@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import sys
 
 # Form implementation generated from reading ui file 'gui.ui'
 #
@@ -11,7 +12,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Dialog(object):
+class UiDialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(694, 813)
@@ -59,7 +60,7 @@ class Ui_Dialog(object):
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
+    ui = UiDialog()
     ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec_())

@@ -1,6 +1,7 @@
 from aqt import mw
 from aqt.qt import *
 from PyQt5.QtWidgets import QFileDialog
+from .ui_dialog import UiDialog
 
 
 def testFunction() -> None:
@@ -24,7 +25,24 @@ def testFunction() -> None:
 
     dialog.exec()
 
+def show_dialog():
+    # Create an instance of QDialog
+    dialog = QDialog()
 
-action = QAction("ImgToAnki", mw)
-qconnect(action.triggered, testFunction)
-mw.form.menuTools.addAction(action)
+    # Create an instance of Ui_Dialog
+    ui = UiDialog()
+    ui.setupUi(dialog)
+
+    # Show the dialog
+    dialog.show()
+    dialog.exec()
+
+
+
+def setup_dialog_action():
+    action = QAction("ImgToAnki", mw)
+    qconnect(action.triggered, show_dialog)
+    mw.form.menuTools.addAction(action)
+
+
+setup_dialog_action()
